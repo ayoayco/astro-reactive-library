@@ -1,0 +1,9 @@
+---
+export interface Props {
+  label: string;
+  disabled?: boolean;
+}
+const { disabled, label } = Astro.props;
+---
+
+<button disabled={disabled || null}>{label}</button>
