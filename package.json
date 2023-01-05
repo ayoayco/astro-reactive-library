@@ -37,6 +37,7 @@
     "apps/*"
   ],
   "dependencies": {
+    "@changesets/cli": "^2.26.0",
     "prettier-plugin-astro": "^0.7.0",
     "prompt-sync": "^4.2.0",
     "short-unique-id": "^4.4.4"
@@ -47,4 +48,3 @@
     "turbo": "^1.6.3"
   }
 }
-
