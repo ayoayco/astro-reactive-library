@@ -3,7 +3,7 @@ title: Form
 type: component
 package: "@astro-reactive/form"
 description: The Reactive Form component for Astro
-layout: ../../../../layouts/MainLayout.astro
+layout: ../../../../layouts/Layout.astro
 ---
 
 The `Form` component renders a form element and various control components (e.g., `Input`, `TextArea`, `Select`) depending on the data that you provide through its `formGroups` property.
@@ -39,24 +39,24 @@ Assigning a `FormGroup` object to the `formGroup` property will set up a form.
 import Form, { FormGroup } from "@astro-reactive/form";
 
 const form = new FormGroup([
-  {
-    name: "username",
-    label: "Username",
-    value: "awesome_dev",
-  },
-  {
-    name: "comment",
-    label: "Feedback",
-    type: "textarea",
-    value: "Nice!",
-  },
-  {
-    name: "size",
-    label: "Size",
-    type: "dropdown",
-    options: ["S", "M", "L", "XL", "XXL"],
-    placeholder: "-- Please choose an option --",
-  },
+	{
+		name: "username",
+		label: "Username",
+		value: "awesome_dev",
+	},
+	{
+		name: "comment",
+		label: "Feedback",
+		type: "textarea",
+		value: "Nice!",
+	},
+	{
+		name: "size",
+		label: "Size",
+		type: "dropdown",
+		options: ["S", "M", "L", "XL", "XXL"],
+		placeholder: "-- Please choose an option --",
+	},
 ]);
 ---
 
@@ -80,45 +80,45 @@ To render a form with multiple field sets, assign an array `FormGroup[]` to the 
 import Form, { FormGroup } from "@astro-reactive/form";
 
 const nameForm = new FormGroup(
-  [
-    {
-      name: "firstName",
-      label: "First Name",
-      value: "John",
-    },
-    {
-      name: "lastName",
-      label: "Last Name",
-      value: "Doe",
-    },
-  ],
-  "Name"
+	[
+		{
+			name: "firstName",
+			label: "First Name",
+			value: "John",
+		},
+		{
+			name: "lastName",
+			label: "Last Name",
+			value: "Doe",
+		},
+	],
+	"Name",
 );
 
 const skills = new FormGroup(
-  [
-    {
-      name: "JavaScript",
-      type: "checkbox",
-      label: "JavaScript",
-    },
-    {
-      name: "TypeScript",
-      type: "checkbox",
-      label: "TypeScript",
-    },
-    {
-      name: "React",
-      type: "checkbox",
-      label: "React",
-    },
-    {
-      name: "Vue",
-      type: "checkbox",
-      label: "Vue",
-    },
-  ],
-  "Skills"
+	[
+		{
+			name: "JavaScript",
+			type: "checkbox",
+			label: "JavaScript",
+		},
+		{
+			name: "TypeScript",
+			type: "checkbox",
+			label: "TypeScript",
+		},
+		{
+			name: "React",
+			type: "checkbox",
+			label: "React",
+		},
+		{
+			name: "Vue",
+			type: "checkbox",
+			label: "Vue",
+		},
+	],
+	"Skills",
 );
 ---
 
@@ -144,8 +144,8 @@ import Form, { FormGroup } from "@astro-reactive/form";
 const form = new FormGroup([]);
 
 const submitControl: Submit = {
-  name: "submit",
-  type: "submit",
+	name: "submit",
+	type: "submit",
 };
 ---
 
@@ -206,8 +206,8 @@ Type: `boolean`
 
 When used with our `validator` package, the `Form` component is able to render validation hints when `showValidationHints` is set to true:
 
-- asterisks on required controls' labels
-- controls with validation errors are colored red
+-   asterisks on required controls' labels
+-   controls with validation errors are colored red
 
 ### `submitControl`
 

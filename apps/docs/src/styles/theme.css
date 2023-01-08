@@ -1,7 +1,11 @@
+* {
+	-webkit-font-smoothing: antialiased;
+}
+
 :root {
 	--font-fallback: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
 		Apple Color Emoji, Segoe UI Emoji;
-	--font-body: system-ui, var(--font-fallback);
+	--font-body: Inter, system-ui, var(--font-fallback);
 	--font-mono: 'IBM Plex Mono', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
 		'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono',
 		'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
@@ -54,6 +58,8 @@
 	--color-purple: var(--color-base-purple), 54%;
 	--color-red: var(--color-base-red), 54%;
 	--color-yellow: var(--color-base-yellow), 59%;
+
+	--scrollbar-bg-color: var(--color-base-gray), 55%;
 }
 
 :root {
@@ -64,6 +70,7 @@
 	--theme-divider: hsla(var(--color-gray-95), 1);
 	--theme-text: hsla(var(--color-gray-10), 1);
 	--theme-text-light: hsla(var(--color-gray-40), 1);
+
 	/* @@@: not used anywhere */
 	--theme-text-lighter: hsla(var(--color-gray-80), 1);
 	--theme-bg: hsla(var(--color-base-white), 100%, 1);
@@ -96,14 +103,14 @@ body {
 
 	/* @@@: not used anywhere */
 	--theme-text-lighter: hsla(var(--color-gray-40), 1);
-	--theme-bg: hsla(215, 28%, 17%, 1);
+	--theme-bg: hsl(218, 31%, 14%);
 	--theme-bg-hover: hsla(var(--color-gray-40), 1);
 	--theme-bg-offset: hsla(var(--color-gray-5), 1);
 	--theme-code-inline-bg: hsla(var(--color-gray-10), 1);
 	--theme-code-inline-text: hsla(var(--color-base-white), 100%, 1);
 	--theme-code-bg: hsla(var(--color-gray-5), 1);
 	--theme-code-text: hsla(var(--color-base-white), 100%, 1);
-	--theme-navbar-bg: hsla(215, 28%, 17%, 1);
+	--theme-navbar-bg: hsl(218, 31%, 14%);
 	--theme-selection-color: hsla(var(--color-base-white), 100%, 1);
 	--theme-selection-bg: hsla(var(--color-purple), var(--theme-accent-opacity));
 
@@ -122,4 +129,20 @@ body {
 ::selection {
 	color: var(--theme-selection-color);
 	background-color: var(--theme-selection-bg);
+}
+
+@media (orientation: landscape) {
+	::-webkit-scrollbar {
+		width: var(--scrollbar-width, 12px);
+		height: var(--scrollbar-height, 12px);
+		background-color: #000;
+	}
+}
+
+@media (orientation: landscape) {
+	::-webkit-scrollbar-thumb {
+		border-radius: 5px;
+		background-color: #fff;
+		border: 2px solid #000;
+	}
 }

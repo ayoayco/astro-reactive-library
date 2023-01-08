@@ -1,50 +1,54 @@
 {
-  "name": "astro-reactive-library",
-  "description": "Astro components for building reactive user interfaces 🚀",
-  "version": "0.0.0",
-  "repository": "https://github.com/astro-reactive/astro-reactive",
-  "homepage": "https://ayco.io/showcase/astro-reactive-library#readme",
-  "author": {
-    "name": "Ayo Ayco",
-    "email": "ayo@ayco.io",
-    "url": "https://ayco.io"
-  },
-  "type": "module",
-  "exports": {
-    ".": "./index.ts"
-  },
-  "scripts": {
-    "start": "turbo run dev --filter=demo",
-    "demo": "turbo run dev --filter=demo",
-    "docs": "turbo run dev --filter=docs",
-    "landing-page": "turbo run dev --filter=landing-page",
-    "test": "turbo run test",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix",
-    "build": "turbo run build",
-    "check": "turbo run check",
-    "clean": "turbo clean",
-    "test:watch": "turbo run test:watch",
-    "patch": "npm version patch -w",
-    "minor": "npm version minor -w",
-    "major": "npm version major -w",
-    "publish": "turbo run lint build check test && npm publish --access public -w",
-    "release": "node ./packages/pr-updater.js"
-  },
-  "license": "ISC",
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
-  "dependencies": {
-    "prettier-plugin-astro": "^0.7.0",
-    "prompt-sync": "^4.2.0",
-    "short-unique-id": "^4.4.4"
-  },
-  "devDependencies": {
-    "eslint-config-turbo": "^0.0.4",
-    "rimraf": "^3.0.2",
-    "turbo": "^1.6.3"
-  }
+	"name": "astro-reactive-library",
+	"description": "Astro components for building reactive user interfaces 🚀",
+	"version": "0.0.0",
+	"repository": "https://github.com/astro-reactive/astro-reactive",
+	"homepage": "https://ayco.io/showcase/astro-reactive-library#readme",
+	"author": {
+		"name": "Ayo Ayco",
+		"email": "ayo@ayco.io",
+		"url": "https://ayco.io"
+	},
+	"type": "module",
+	"exports": {
+		".": "./index.ts"
+	},
+	"scripts": {
+		"start": "turbo run dev --filter=demo",
+		"demo": "turbo run dev --filter=demo",
+		"docs": "turbo run dev --filter=docs",
+		"landing-page": "turbo run dev --filter=landing-page",
+		"test": "turbo run test",
+		"lint": "turbo run lint",
+		"lint:fix": "turbo run lint:fix",
+		"build": "turbo run build",
+		"check": "turbo run check",
+		"clean": "turbo clean",
+		"test:watch": "turbo run test:watch",
+		"patch": "npm version patch -w",
+		"minor": "npm version minor -w",
+		"major": "npm version major -w",
+		"publish": "turbo run lint build check test && npm publish --access public -w",
+		"release": "node ./packages/pr-updater.js"
+	},
+	"license": "ISC",
+	"workspaces": [
+		"packages/*",
+		"apps/*"
+	],
+	"dependencies": {
+		"prettier-plugin-astro": "^0.7.0",
+		"prompt-sync": "^4.2.0",
+		"short-unique-id": "^4.4.4"
+	},
+	"devDependencies": {
+		"eslint-config-turbo": "^0.0.4",
+		"rimraf": "^3.0.2",
+		"turbo": "^1.6.3"
+	},
+	"engines": {
+		"node": "~16.18.1",
+		"npm": "~9.2.0"
+	}
 }
 

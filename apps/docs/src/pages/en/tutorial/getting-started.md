@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 description: Library homepage
-layout: ../../../layouts/MainLayout.astro
+layout: ../../../layouts/Layout.astro
 ---
 
 Consider the following code:

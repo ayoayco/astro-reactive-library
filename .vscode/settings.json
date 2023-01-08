@@ -3,6 +3,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "cSpell.words": ["Astro", "maxlength"],
-  "prettier.documentSelectors": ["**/*.astro"]
+  "cSpell.words": [
+    "Astro",
+    "maxlength"
+  ],
+  "prettier.documentSelectors": [
+    "**/*.astro"
+  ]
 }

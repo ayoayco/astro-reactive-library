@@ -1,7 +1,7 @@
 ---
 title: Reactive Form
 description: Lorem ipsum dolor sit amet - 2
-layout: ../../../layouts/MainLayout.astro
+layout: ../../../layouts/Layout.astro
 ---
 
 ![package-form-cover](https://user-images.githubusercontent.com/4262489/193812095-1cffa287-e2ac-4671-b604-1e2ff2e6f19e.png)
@@ -38,15 +38,15 @@ import Form from "@astro-reactive/form";
 
 // create a form group
 const form = new FormGroup([
-  {
-    name: "username",
-    label: "Username",
-  },
-  {
-    name: "password",
-    label: "Password",
-    type: "password",
-  },
+	{
+		name: "username",
+		label: "Username",
+	},
+	{
+		name: "password",
+		label: "Password",
+		type: "password",
+	},
 ]);
 
 // set the name optionally
@@ -54,11 +54,11 @@ form.name = "Simple Form";
 
 // you can insert a control at any point
 form.controls.push(
-  new FormControl({
-    type: "checkbox",
-    name: "is-awesome",
-    label: "is Awesome?",
-  })
+	new FormControl({
+		type: "checkbox",
+		name: "is-awesome",
+		label: "is Awesome?",
+	}),
 );
 
 // you can get a FormControl object
@@ -66,12 +66,11 @@ const userNameControl = form.get("username");
 
 // you can set values dynamically
 userNameControl?.setValue("RAMOOOON");
-form.get('is-awesome')?.setValue("checked");
+form.get("is-awesome")?.setValue("checked");
 ---
 
 <!-- the formGroups attribute takes an array of FormGroup-->
 <Form formGroups={[form]} />
-
 ```
 
 # Screenshots
@@ -89,17 +88,17 @@ Example of multiple form groups:
 Currently this only supports very basic form creation, but the goal of the project is ambitious:
 
 1. Validator library for common validation scenarios
-   1. Client-side validation
-   1. Server-side validation
-   1. validation hooks - onFocus, onBlur, onSubmit
+    1. Client-side validation
+    1. Server-side validation
+    1. validation hooks - onFocus, onBlur, onSubmit
 1. Themes - unstyled, light mode, dark mode, compact, large
 1. FormGroup class
-   1. `statusChanges` - observable that emits the form status when it changes
-   1. `valueChanges` - observable that emits the values of all controls when they change
+    1. `statusChanges` - observable that emits the form status when it changes
+    1. `valueChanges` - observable that emits the values of all controls when they change
 1. FormControl class
-   1. `statusChanges` - observable that emits the control status when it changes
-   1. `valueChanges` - observable that emits the control value when it changes
-   1. `value` - property that reflects the control value
+    1. `statusChanges` - observable that emits the control status when it changes
+    1. `valueChanges` - observable that emits the control value when it changes
+    1. `value` - property that reflects the control value
 1. Documentation website
 
 ... and so much more

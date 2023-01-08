@@ -1,0 +1,162 @@
+---
+// https://github.com/natemoo-re/astro-icon
+import { Sprite } from 'astro-icon'
+import { Frontmatter, SITE, GITHUB_EDIT_URL,OPEN_GRAPH } from "../config";
+
+/**Objective
+ *  - Base Skeleton for all pages and layouts,
+ *  - Why Not Code Splitting it into, Components
+ *      because It's not that much changing and we basically need it globally,
+ *      and core purpose of components is to be used at multiple places, 
+ *      It's just a **BIG LAYOUT COMPONENT FOR US**
+ */
+
+/**Features 
+ *  0. Global Entry Point, (Reference point)
+ *  1. SEO 
+ *  2. Theme
+ *  3. Icons
+ *  4. importing a global css
+ *  5. no html, no classnames
+*/
+
+interface Props extends Frontmatter {
+  class: string;
+  // If your component must be passed children to its default slot, 
+  // you can enforce this by using type Props = { children: any; };
+  // from Astro Docs
+  children: any;
+} 
+
+const {
+  title: titleFromChildren,
+  description,
+  image,
+  dir,
+  lang,
+  ogLocale:fromOgLocale,
+  class: className = '',
+  // layout we don't need it. but it's will be need at child
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname.replace(/([^/]$)/,'$1/'),Astro.site);
+const currentPage = Astro.url.pathname;
+const currentFile = `src/pages${currentPage.replace(/\/$/, "")}.md`;
+const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
+
+const title = `${titleFromChildren} 🚀 ${SITE.title}`;
+const ogLocale = fromOgLocale ?? SITE.defaultLanguage
+const imageSrc = image?.src ?? OPEN_GRAPH.image.src;
+const canonicalImageSrc = new URL(imageSrc, Astro.site);
+const imageAlt = image?.alt ?? OPEN_GRAPH.image.alt;
+---
+<!DOCTYPE html>
+<html dir={dir ?? "ltr"} lang={lang ?? "en-us"} class="initial">
+<head>
+  <!-- common -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Defining the current Language -->
+  <meta property="og:locale" content={ogLocale} />
+  
+  <!-- Favicon-Icon,Width-Height,Theme-Color, SiteMap, and Dark Mode -->
+  <meta name="viewport" content="width=device-width" />
+  <meta name="theme-color" content="#8D46E7" />
+  
+  <meta name="color-scheme" content="dark light" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="mask-icon" href="/favicon.svg" color="#8D46E7" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <!-- Global Metadata -->
+  <meta property="og:type" content="article" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- Page Metadata -->
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+  <link rel="canonical" href={canonicalURL} />
+  
+  <!-- Preload -->
+  <slot name="preload" />
+
+  <!-- Meta Tags Responsible for Title for the Page -->
+  <title set:html={title} />
+  <meta name="apple-mobile-web-app-title" content={title} />
+  <meta name="page-subject" content={title} />
+  <meta name="title" content={title} />
+  <meta property="og:site_name" content={title} />
+
+  <meta property="og:title" content={title} />
+  <meta property="twitter:title" content={title} />
+
+  <!-- Meta Tags Responsible for description of your site -->
+  <meta name="description" content={description} />
+  <meta property="og:description" content={description} />
+  <meta property="twitter:description" content={description} />
+  <meta name="summary" content={description} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:url" content={canonicalURL} />
+  {image && (<meta property="og:image" content={canonicalImageSrc} />
+  <meta property="og:image:alt" content={imageAlt} />
+  <meta property="og:image:secure_url" content={canonicalImageSrc} />)}
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonicalURL} />
+  {image && <meta property="twitter:image" content={canonicalImageSrc} />}
+
+  <meta name="author" content="Astro-Reactive" />
+  <meta name="twitter:site" content={"@"+OPEN_GRAPH.twitter} />
+  <meta name="twitter:site:id" content={"@"+OPEN_GRAPH.twitter} />
+
+  <!-- <meta name="twitter:creator" content="@monicalent">
+  <meta property="twitter:creator:id" content="13334762"> -->
+  <meta name="creator" content={"@"+OPEN_GRAPH.twitter} />
+  <meta name="publisher" content={OPEN_GRAPH.twitter} />
+
+  <!-- Avoiding Foc, More robust then previous -->
+  <script>
+    const root = document.documentElement
+    const theme = localStorage.getItem('theme-preference')
+    if (
+      theme === 'dark' ||
+      (!('theme-preference' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    )
+      root.classList.add('dark');
+    else root.classList.remove('dark');
+  </script>
+
+  <!-- Loading the FONTS -->
+  <style is:inline>
+    @font-face {
+      font-family: 'InterVar';
+      font-weight: 100 900;
+      font-display: swap;
+      font-style: normal;
+      src: url('/fonts/Inter/Inter.var.woff2?v=3.19') format('woff2-variations'),
+        url('/fonts/Inter/Inter.var.woff2?v=3.19') format('woff2');
+      src: url('/fonts/Inter/Inter.var.woff2?v=3.19') format('woff2') tech('variations');
+    }
+    @font-face {
+      font-family: 'InterVar';
+      font-weight: 100 900;
+      font-display: swap;
+      font-style: italic;
+      src: url('/fonts/Inter/Inter-Italic.var.woff2?v=3.19') format('woff2-variations'),
+        url('/fonts/Inter/Inter-Italic.var.woff2?v=3.19') format('woff2');
+      src: url('/fonts/Inter/Inter-Italic.var.woff2?v=3.19') format('woff2') tech('variations');
+    }
+  </style>
+</head>
+<body class={className}>
+  <Sprite.Provider>
+		<slot />
+  </Sprite.Provider>
+</body>
+</html>

@@ -1,7 +1,7 @@
 ---
 title: Hi, explorer!
 description: Astro Reactive Library Docs
-layout: ../../layouts/MainLayout.astro
+layout: ../../layouts/Layout.astro
 ---
 
 Thanks for checking out the Astro Reactive Library! Welcome to a new adventure.
