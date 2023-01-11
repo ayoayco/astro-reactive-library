@@ -1,4 +1,5 @@
 /** @type {import("@types/eslint").Linter.Config} */
 module.exports = {
-  extends: '../common/configs/.eslintrc.cjs',
+  root: true,
+  extends: ['@astro-reactive/eslint-config-custom'],
 };

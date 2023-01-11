@@ -1,6 +1,3 @@
 {
-  "extends": "astro/tsconfigs/strictest",
-  "compilerOptions": {
-    "skipLibCheck": true
-  }
+  "extends": "@astro-reactive/tsconfig/astro-library.json"
 }

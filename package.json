@@ -34,7 +34,8 @@
   "license": "ISC",
   "workspaces": [
     "packages/*",
-    "apps/*"
+    "apps/*",
+    "configs/*"
   ],
   "dependencies": {
     "prettier-plugin-astro": "^0.7.0",

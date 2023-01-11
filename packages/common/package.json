@@ -7,6 +7,9 @@
   "devDependencies": {
     "rimraf": "^3.0.2"
   },
+  "dependencies": {
+    "@astro-reactive/tsconfig": "*"
+  },
   "exports": {
     ".": "./index.ts"
   },

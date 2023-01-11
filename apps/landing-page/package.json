@@ -24,6 +24,7 @@
     "tailwindcss-fluid-type": "^2.0.3"
   },
   "dependencies": {
+    "@astro-reactive/tsconfig": "*",
     "micromodal": "^0.4.10",
     "tailwindcss": "^3.1.8"
   },

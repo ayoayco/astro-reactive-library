@@ -36,13 +36,9 @@
     "@types/eslint": "^8.4.6",
     "@types/node": "^18.7.18",
     "@types/prettier": "^2.7.0",
-    "@typescript-eslint/eslint-plugin": "^5.37.0",
-    "@typescript-eslint/parser": "^5.37.0",
     "astro": "^1.5.0",
     "astro-component-tester": "^0.6.0",
     "eslint": "^8.23.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.7.0",
     "rimraf": "^3.0.2",
@@ -55,6 +51,8 @@
   "license": "MIT",
   "dependencies": {
     "@astro-reactive/common": "*",
+    "@astro-reactive/eslint-config-custom": "*",
+    "@astro-reactive/tsconfig": "*",
     "@astro-reactive/validator": "*",
     "short-unique-id": "^4.4.4"
   },
